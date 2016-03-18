@@ -11,9 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','PagesController@home');
+Route::get('home','PagesController@home');
+Route::get('signup','PagesController@signup');
+Route::get('login','PagesController@login');
+Route::get('addActivity','PagesController@addActivity');
+Route::get('admin','PagesController@admin');
+Route::get('region','PagesController@region');
+Route::get('activity','PagesController@activity');
+
+
 
 /*
 |--------------------------------------------------------------------------
