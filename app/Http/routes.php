@@ -12,6 +12,24 @@
 */
 
 Route::get('/','PagesController@home');
+Route::get('activity','ActivityController@index');
+
+Route::get('addregion','RegionController@addRegion');
+
+
+
+        //Activity
+Route::get('activities','ActivityController@index');
+Route::post('activity', 'ActivityController@store');
+Route::get('activities/create','ActivityController@create' );
+Route::get('activities/{id}','ActivityController@show');
+
+//Accounts
+  Route::get('accounts','AccountsController@index');
+  Route::post('account','AccountsController@store');
+  Route::get('accounts/create','AccountsController@create');
+  Route::get('accounts/{id}','AccountsController@show');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
