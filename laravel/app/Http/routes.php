@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/','PagesController@home');
+Route::get('/', function () {
+    return view('welcome');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
