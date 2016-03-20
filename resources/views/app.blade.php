@@ -9,14 +9,14 @@
         <!DOCTYPE html>
 <html>
 <head>
-    <title>Document</title>
+    <title>@yield('title')</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/sandstone.css') }}" rel="stylesheet">
-    <link rel="script" href="{{ URL::asset('js/jquery.js') }}">
-    <link rel="script" href="{{ URL::asset('js/bootstrap.min.js') }}">
 
+    {!! Html::script('js/jquery.min.js') !!}
+    {!! Html::script('js/bootstrap.min.js') !!}
 
 </head>
 <body>
@@ -29,13 +29,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">Contacts Management System</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li class="active"><a href="about">About us<span class="sr-only">(current)</span></a></li>
+                <li><a href="help">Help</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -56,7 +56,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+                <li><a href="auth/login">Login</a></li>
             </ul>
         </div>
     </div>
@@ -68,5 +68,8 @@
     </div>
 </div>
 @yield('footer')
+        <!-- Scripts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

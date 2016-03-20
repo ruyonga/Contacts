@@ -11,38 +11,30 @@
 @section('content')
 
     <h1>Add Activity</h1>
+    @include('errors.errors')
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
-                {!! Form::open(['url' => 'activity', 'class' => 'form-horizontal']) !!}
-                <fieldset>
-                    <div class="form-group">
-                        {!! Form::label('name', 'Activity Title:') !!}
-                        {!! Form::text('name',null,['class' => 'form-control', 'style'=>'width:50%;' ]) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('details', 'Activity Details:') !!}
-                        {!! Form::textarea('details',null,['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group">
+            <div class="col-md-6">
+                {!! Form::open(['url' => 'activities', 'class' => 'form-horizontal']) !!}
+                @include('activity.form',['submitbuttontext'=> 'Save Activity'])
 
+                {!! Form::close() !!}
 
-                            {!! Form::submit('Submit', ['class' => 'btn  btn-primary form-control','style' =>"width:80%;"]) !!}
-
-                    </div>
-                    {!! Form::close() !!}
-                </fieldset>
             </div>
             <div class="col-md-4">
                 <div class="list-group">
                     <a href="#" class="list-group-item active">
-                       Reset Activities
+                        Reset Activities
                     </a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in
-                    </a>
-                    <a href="#" class="list-group-item">Morbi leo risus
-                    </a>
+                    @foreach($activities as $activity)
+
+
+                        <a class="list-group-item"
+                           href="{{url('/activities', $activity->id)}}"> {{$activity->title}}   </a>
+
+
+                    @endforeach
                 </div>
             </div>
         </div>

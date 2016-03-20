@@ -11,24 +11,12 @@
 |
 */
 
-Route::get('/','PagesController@home');
-Route::get('activity','ActivityController@index');
-
-Route::get('addregion','RegionController@addRegion');
-
+Route::get('/', 'PagesController@home');
+Route::get('about', 'PagesController@about');
+Route::get('help', 'PagesController@help');
 
 
-        //Activity
-Route::get('activities','ActivityController@index');
-Route::post('activity', 'ActivityController@store');
-Route::get('activities/create','ActivityController@create' );
-Route::get('activities/{id}','ActivityController@show');
 
-//Accounts
-  Route::get('accounts','AccountsController@index');
-  Route::post('account','AccountsController@store');
-  Route::get('accounts/create','AccountsController@create');
-  Route::get('accounts/{id}','AccountsController@show');
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +31,25 @@ Route::get('activities/{id}','ActivityController@show');
 
 Route::group(['middleware' => ['web']], function () {
     //
+    //Activity
+    Route::resource('activities', 'ActivityController');
+    //Accounts
+    Route::resource('accounts', 'AccountsController');
+
+    // Authentication routes...
+    Route::get('auth/login', 'Auth\AuthController@getLogin');
+    Route::post('auth/login', 'Auth\AuthController@postLogin');
+    Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+    // Registration routes...
+    Route::get('auth/register', 'Auth\AuthController@getRegister');
+    Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+    //Activity
+    Route::resource('regions', 'RegionController');
+
+
+
 });
+
+

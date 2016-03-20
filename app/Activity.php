@@ -10,7 +10,7 @@ class Activity extends Model
      //all multiple assignment for the following
 
      protected $fillable = [
-         'name',
+         'title',
          'details'
      ];
 }

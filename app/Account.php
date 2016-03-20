@@ -8,9 +8,24 @@ class Account extends Model
 {
     //
 
+    /**
+     * @var array
+     * These fields can be mass assigned
+     */
     protected $fillable = [
       'id_number','fname','lname','phone',
         'email','position','jobdescription',
 
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * accounts are categorised according to regions
+     */
+    public function account(){
+
+        return $this->belongsTo('App\Region');
+    }
 }
+
+

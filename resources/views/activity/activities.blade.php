@@ -14,7 +14,7 @@
         <article>
             <h2>
                 {{--<a href="{{action('',[$activity->id])}}"> {{$activity->name}}</a>--}}
-                <a href="{{url('/activities', $activity->id)}}"> {{$activity->name}}   </a>
+                <a href="{{url('/activities', $activity->id)}}"> {{$activity->title}}   </a>
             </h2>
             <div class="body">{{$activity->details}}</div>
         </article>
