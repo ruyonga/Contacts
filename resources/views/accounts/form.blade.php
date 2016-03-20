@@ -30,13 +30,18 @@
 
     <div class="form-group">
         {!! Form::label('Phone Number') !!}
-        {!! Form::text('phone', null,['required', 'class'=>'form-control','placeholder'=>'Phone Number']) !!}
+        {!! Form::tel('phone', null,['required', 'class'=>'form-control','placeholder'=>'Phone Number']) !!}
     </div>
 
     <div class="form-group">
         {!! Form::label('Job Position') !!}
         {!! Form::text('position', null,['required', 'class'=>'form-control','placeholder'=>'Job Position']) !!}
     </div>
+    <div class="form-group">
+        <div class="form-group">
+            {!! Form::Label('Region') !!}
+            {!! Form::select('region_id',$items, null, ['class' => 'form-control']) !!}
+        </div>
     <div class="form-group">
         {!! Form::label('Job Description') !!}
         {!! Form::textarea('jobdescription', null, ['required','class'=>'form-control','placeholder'=>'Job Description']) !!}

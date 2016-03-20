@@ -31,14 +31,15 @@ Route::get('help', 'PagesController@help');
 
 Route::group(['middleware' => ['web']], function () {
     //
-    //Activity
-    Route::resource('activities', 'ActivityController');
+    Route::get('gologin', 'LoginController@index');
+
     //Accounts
     Route::resource('accounts', 'AccountsController');
 
     // Authentication routes...
-    Route::get('auth/login', 'Auth\AuthController@getLogin');
+    Route::get('auth/gologin', 'Auth\AuthController@getLogin');
     Route::post('auth/login', 'Auth\AuthController@postLogin');
+
     Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
     // Registration routes...
@@ -49,6 +50,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('regions', 'RegionController');
 
 
+
+});
+
+Route::group(['middleware' => ['auth']], function () {
+    //  //Activity
+    Route::resource('activities', 'ActivityController');
 
 });
 

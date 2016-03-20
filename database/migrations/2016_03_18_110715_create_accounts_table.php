@@ -27,8 +27,6 @@ class CreateAccountsTable extends Migration
             $table->text('jobdescription');
             $table->timestamps();
 
-            //set the foreign key constrait
-            $table->foreign('region_id')->references('id')->on('regions') ;
 
 
 

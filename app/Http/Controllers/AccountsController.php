@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Account;
 use App\Http\Requests;
 use App\Http\Requests\AccountsRequest;
+use App\Region;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -30,7 +31,12 @@ class AccountsController extends Controller
     public function create()
     {
 
-        return view('accounts.register');
+
+        $items = Region::select()
+                ->distinct()
+                ->lists('name','id')->all();
+
+        return view('accounts.register',compact('items','status'));
     }
 
     //save

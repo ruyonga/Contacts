@@ -21,9 +21,8 @@ Register
          @include('errors.errors')
         <p>Hi, here you can create a new account. Just fill in the form and press sign up button.</p>
         <br>
-        {!! Html::ul($errors->all(), array('class'=>'errors')) !!}
 
-        {!! Form::open(array('url' => 'users/register','class'=>'form')) !!}
+        {!! Form::open(array('url' => 'auth/register','class'=>'form')) !!}
 
         <br>{!! Form::label('name', 'Username') !!}
         {!! Form::text('name', null, array('class' => 'form-control','placeholder' => 'kenny')) !!}

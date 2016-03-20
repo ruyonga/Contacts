@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -69,4 +70,18 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @return Response
+     */
+    protected function getLogout()
+    {
+        $this->auth->logout();
+        return redirect('/');
+    }
+
+
+
 }

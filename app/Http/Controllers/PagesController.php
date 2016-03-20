@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -14,7 +15,9 @@ class PagesController extends Controller
      */
     public function home(){
 
-        return view('pages.home');
+        $status  = Auth::check();
+
+        return view('pages.home', compact('status'));
     }
 
       /*

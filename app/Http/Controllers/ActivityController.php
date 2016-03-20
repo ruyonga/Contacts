@@ -6,14 +6,21 @@ use App\Activity;
 use App\Http\Requests\CreateActivityRequest;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class ActivityController extends Controller
 {
     // Handle stuff relating to the activity
 
+           public function __construct()
+           {
+               $this->middleware('auth');
+           }
+
     //show all the activities
     public function index()
     {
+
         $activities = Activity::orderBy('created_at', 'desc')->get();
 
         return view('activity.activities', compact('activities'));
@@ -22,9 +29,14 @@ class ActivityController extends Controller
     /**create any activity  */
     public function create()
     {
-        $activities = Activity::orderBy('created_at', 'desc')->get();
+        if(Auth::check()){
+            $activities = Activity::orderBy('created_at', 'desc')->get();
 
-        return view('activity.addActivity', compact('activities'));
+            return view('activity.addActivity', compact('activities'));
+        }else{
+            return view('auth.login');
+        }
+
     }
 
     /**

@@ -30,6 +30,7 @@ class AccountsRequest extends Request
             'email' => 'required|email|unique:users',
             'id_number' => 'required|min:3',
             'position' => 'required|min:5',
+            'region_id' => 'required',
             'jobdescription' => 'required'
         ];
     }

@@ -15,7 +15,7 @@ class CreateRegionsTable extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('head')->unsigned()->index();;
+            $table->string('head')->default('null');
             $table->string('king')->defualt('null');
             $table->string('queen')->default('null');
             $table->timestamps();

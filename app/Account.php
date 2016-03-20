@@ -14,7 +14,7 @@ class Account extends Model
      */
     protected $fillable = [
       'id_number','fname','lname','phone',
-        'email','position','jobdescription',
+        'email','position','jobdescription','region_id',
 
     ];
 
